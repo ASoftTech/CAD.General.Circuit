@@ -1,0 +1,579 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "General Circuit Schematics\n\n\nOverview\n\n\nThis is a collection of docs for the creation of PCB\ns via KiCad, as well as some schematic templates for projects. \n\nAlso I\nve put some details here on using a LaserCutter (Manchester Hackspace one) \n\nAs well as a CNC (Shapeoko2 / Ooznest OX) for making prototype PCB boards\n\n\n\n\nStep by Step using KiCad to create a PCB\n\n\nUsing FlatCAM to create svg\ns for importing into Visicut\n\n\nStep by Step using Visicut / The Manchester Hackspace Orange Laser Cutter to create PCB\ns\n\n\nUsing FlatCAM to create G-Code for importing into Chillipepr\n\n\nStep by Step using Chillipepr to mill a PCB\n\n\n\n\nCloning\n\n\nTo clone this repo\n\n\nMethod 1\n\n\ngit clone https://github.com/grbd/CAD.General.Circuit.git\ngit submodule init\ngit submodule update\n\n\n\n\nMethod 2\n\n\ngit clone --recursive https://github.com/grbd/CAD.General.Circuit.git", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#general-circuit-schematics", 
+            "text": "", 
+            "title": "General Circuit Schematics"
+        }, 
+        {
+            "location": "/#overview", 
+            "text": "This is a collection of docs for the creation of PCB s via KiCad, as well as some schematic templates for projects.  \nAlso I ve put some details here on using a LaserCutter (Manchester Hackspace one)  \nAs well as a CNC (Shapeoko2 / Ooznest OX) for making prototype PCB boards   Step by Step using KiCad to create a PCB  Using FlatCAM to create svg s for importing into Visicut  Step by Step using Visicut / The Manchester Hackspace Orange Laser Cutter to create PCB s  Using FlatCAM to create G-Code for importing into Chillipepr  Step by Step using Chillipepr to mill a PCB", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#cloning", 
+            "text": "To clone this repo  Method 1  git clone https://github.com/grbd/CAD.General.Circuit.git\ngit submodule init\ngit submodule update  Method 2  git clone --recursive https://github.com/grbd/CAD.General.Circuit.git", 
+            "title": "Cloning"
+        }, 
+        {
+            "location": "/PCB/KiCad/Overview/", 
+            "text": "KiCad Overview\n\n\nThis is a series of docs I have put together just to highlight the steps needed when putting together a PCB within KiCad.\n\nThis is not meant as a full tutorial, more just a list of things to do to make sure the design rules are correct etc.\n\nHackaday have done a full set of tutorials recently on the use of KiCad\n\n\n\n\nhttp://hackaday.com/2016/11/17/creating-a-pcb-in-everything-kicad-part-1/\n\n\nhttp://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/\n\n\nhttp://hackaday.com/2016/12/23/creating-a-pcb-in-everything-kicad-part-3/\n\n\n\n\nPart of this is a lead up to other sections that cover the making of PCB\ns via a CNC or Laser cutter.\n\nHowever, these days for where more than one is needed it\ns usually better to purchase the PCB\ns from a manufacturer such as\n\n\n\n\nSeed Studio\n\n\nDirty PCBs\n\n\nOSHPark", 
+            "title": "Overivew"
+        }, 
+        {
+            "location": "/PCB/KiCad/Overview/#kicad-overview", 
+            "text": "This is a series of docs I have put together just to highlight the steps needed when putting together a PCB within KiCad. \nThis is not meant as a full tutorial, more just a list of things to do to make sure the design rules are correct etc. \nHackaday have done a full set of tutorials recently on the use of KiCad   http://hackaday.com/2016/11/17/creating-a-pcb-in-everything-kicad-part-1/  http://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/  http://hackaday.com/2016/12/23/creating-a-pcb-in-everything-kicad-part-3/   Part of this is a lead up to other sections that cover the making of PCB s via a CNC or Laser cutter. \nHowever, these days for where more than one is needed it s usually better to purchase the PCB s from a manufacturer such as   Seed Studio  Dirty PCBs  OSHPark", 
+            "title": "KiCad Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/SchematicPCB/", 
+            "text": "KiCad - Schematic to PCB\n\n\nFor this section, I am going to go over the steps needed to convert a KiCad schematic to an initial PCB Board\n\n\nAssigning Footprints\n\n\nFirst, we are going to want to assign footprints to each of the components within the schematic.\nThe newer latest version of KiCad makes this a lot easier than the old version.\nWe have now have a way of doing this without having to jump into the PCB Editor first.\n\n\n \n\n\nSelect \nAssign Component Footprints\n from the \nTools\n menu\n\n\n \n\n\nUnlike eagle within KiCad footprints and schematic parts are considered completely separate entities.\n\nIn the past, this used to cause problems with linking one to the other. We now have the option to use filtering to filter down the list of footprints for a given component.\n\n\n\n\nFilter by \nPin count\n\n\nFilter by \nLibrary\n\n\nFilter by \nKeywords\n\n\n\n\nThe \nfilter by pin count\n does what it says on the tin, if the schematic part only has 2 pins then the pcb footprints available shown\nWill also only have two pins.\n\n\nThe \nfilter by Library\n allows you to only see footprints from the library picked on the far left hand side of the form.\n\n\nThe \nfilter by keywords\n is probably the closest thing to a linkage between schematic parts and pcb footprints within KiCad.\nWhen creating a schematic part it is possible to list a series of keywords, and the same can be true with PCB footprints.\nIf the selected schematic part has a keyword listed in the list of available footprints then it will show up in the result list on the right hand side.\n\n\nThe \npreview footprint\n button is also very useful to see what the footprint looks like during the picking process\n\n\n \n\n\nGenerating the NetList\n\n\nNext, we need to generate a netlist file. A netlist file is just a list of the schematic parts / pcb footprints and how everything is wired together.\nWe use this within pcbnew as the initial input when creating the PCB\n\n\nClick on the \nGenerate Netlist\n button within the schematic editor\n\n\n \n\n\nThe end result will be a file called \nProjectName\n.net\n outputted within the Project Directory\n\n\nOpening the PCB\n\n\nNext, we are going to read in the netlist file into the PCB Editor pcbnew \n\nOpen up pcbnew and click the \nRead NetList\n button\n\n\n \n\n\nClick \nRead Current Netlist\n and check the bottom for any errors when the file is read in\n\n\n \n\n\nThe end result will be a bunch of components all grouped together in the centre of the board", 
+            "title": "Schematic"
+        }, 
+        {
+            "location": "/PCB/KiCad/SchematicPCB/#kicad-schematic-to-pcb", 
+            "text": "For this section, I am going to go over the steps needed to convert a KiCad schematic to an initial PCB Board", 
+            "title": "KiCad - Schematic to PCB"
+        }, 
+        {
+            "location": "/PCB/KiCad/SchematicPCB/#assigning-footprints", 
+            "text": "First, we are going to want to assign footprints to each of the components within the schematic.\nThe newer latest version of KiCad makes this a lot easier than the old version.\nWe have now have a way of doing this without having to jump into the PCB Editor first.     Select  Assign Component Footprints  from the  Tools  menu     Unlike eagle within KiCad footprints and schematic parts are considered completely separate entities. \nIn the past, this used to cause problems with linking one to the other. We now have the option to use filtering to filter down the list of footprints for a given component.   Filter by  Pin count  Filter by  Library  Filter by  Keywords   The  filter by pin count  does what it says on the tin, if the schematic part only has 2 pins then the pcb footprints available shown\nWill also only have two pins.  The  filter by Library  allows you to only see footprints from the library picked on the far left hand side of the form.  The  filter by keywords  is probably the closest thing to a linkage between schematic parts and pcb footprints within KiCad.\nWhen creating a schematic part it is possible to list a series of keywords, and the same can be true with PCB footprints.\nIf the selected schematic part has a keyword listed in the list of available footprints then it will show up in the result list on the right hand side.  The  preview footprint  button is also very useful to see what the footprint looks like during the picking process", 
+            "title": "Assigning Footprints"
+        }, 
+        {
+            "location": "/PCB/KiCad/SchematicPCB/#generating-the-netlist", 
+            "text": "Next, we need to generate a netlist file. A netlist file is just a list of the schematic parts / pcb footprints and how everything is wired together.\nWe use this within pcbnew as the initial input when creating the PCB  Click on the  Generate Netlist  button within the schematic editor     The end result will be a file called  ProjectName .net  outputted within the Project Directory", 
+            "title": "Generating the NetList"
+        }, 
+        {
+            "location": "/PCB/KiCad/SchematicPCB/#opening-the-pcb", 
+            "text": "Next, we are going to read in the netlist file into the PCB Editor pcbnew  \nOpen up pcbnew and click the  Read NetList  button     Click  Read Current Netlist  and check the bottom for any errors when the file is read in     The end result will be a bunch of components all grouped together in the centre of the board", 
+            "title": "Opening the PCB"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/", 
+            "text": "KiCad Design Rules\n\n\nSuggested Design Rules\n\n\n\n\nOSHPark\n\n\nSeed Studio\n\n\nOrange Laser Cutter\n\n\nCNC - Shapeoko2\n\n\nCNC - Ox\n\n\n\n\nOverview\n\n\nNext, we are going to set the design rules for the board.\nThis is important to do for several different reasons.\n\n\n\n\nWhen setting a minimum clearance or track width.\n\n    The editor will prevent us from creating too small tracks, or tracks too close together.\n\n\nIf using autoroute the clearance and track size limits will be taken into account.\n\n\nWhen using a manufacturer such as seed studio, they have minimum size limits and clearance limits for tracks.\n\n\n\n\nDesign Rules Setup\n\n\nFirst to set the units to use mm / inch. \n\nSelect \nPreferences -\n General\n from the menu\n\n\nNext to open up the design rules. \n\nSelect \nDesign Rules -\n Design Rules\n from the menu\n\n\nGlobal Design Rules\n\n\nFirst, we need to add in some settings to the global design rules. \n\nIf micro via\ns have been disabled, then the micro via settings can just be set to 0. \n\nThese settings determine the minimum values for track width / via diameter / drill diameter.\n\n\n \n\n\nNet Class Setup\n\n\nNext, we need to copy some of those settings across to the Default Net Class.\n\nAlso it\ns possible to create new net classes to represent a given track width, then assign the net class\ns to given net\ns on the board", 
+            "title": "Design Rules"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#kicad-design-rules", 
+            "text": "", 
+            "title": "KiCad Design Rules"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#suggested-design-rules", 
+            "text": "OSHPark  Seed Studio  Orange Laser Cutter  CNC - Shapeoko2  CNC - Ox", 
+            "title": "Suggested Design Rules"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#overview", 
+            "text": "Next, we are going to set the design rules for the board.\nThis is important to do for several different reasons.   When setting a minimum clearance or track width. \n    The editor will prevent us from creating too small tracks, or tracks too close together.  If using autoroute the clearance and track size limits will be taken into account.  When using a manufacturer such as seed studio, they have minimum size limits and clearance limits for tracks.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#design-rules-setup", 
+            "text": "First to set the units to use mm / inch.  \nSelect  Preferences -  General  from the menu  Next to open up the design rules.  \nSelect  Design Rules -  Design Rules  from the menu", 
+            "title": "Design Rules Setup"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#global-design-rules", 
+            "text": "First, we need to add in some settings to the global design rules.  \nIf micro via s have been disabled, then the micro via settings can just be set to 0.  \nThese settings determine the minimum values for track width / via diameter / drill diameter.", 
+            "title": "Global Design Rules"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules/#net-class-setup", 
+            "text": "Next, we need to copy some of those settings across to the Default Net Class. \nAlso it s possible to create new net classes to represent a given track width, then assign the net class s to given net s on the board", 
+            "title": "Net Class Setup"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/", 
+            "text": "Design Rules - OSHPark\n\n\nOverview\n\n\nFor OSHPark the recommended Design rules are\n\n\n\n\nhttp://docs.oshpark.com/design-tools/kicad/\n\n\nhttp://docs.oshpark.com/design-tools/kicad/kicad-design-rules/\n\n\n\n\nNote 0.001\n = 1mil\n\n\nSince the minimum annular ring measurement is 7mil\n\nThe minimum via diameter = 7 + 7 + 13 (drill diameter) = 27mil\n\n\n2 Layer Prototype\n\n\nGlobal Settings\n\n\n\n\nDisable the \nBlind/Buried vias\n\n\nDisable the \nMicro vias\n\n\nMin track width: \n0.006\n / 0.1524mm\n\n\nMin via diameter: \n0.027\n / 0.6858mm\n\n\nMin via drill diameter: \n0.013\n / 0.3302mm\n\n\nMin uvia diameter: \n0.508 (unused)\n\n\nMin uvia drill dia: \n0.127 (unused)\n\n\n\n\nNet Classes\n\n\nMinimal Net Class\n\n\n\n\nClearance: \n0.006\n / 0.1524mm\n\n\nTrack Width: \n0.006\n / 0.1524mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.013\n / 0.3302mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical Default Net Class\n\n\n\n\nClearance: \n0.010\n / 0.254mm\n\n\nTrack Width: \n0.010\n / 0.254mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.013\n / 0.3302mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical 0.2mm Net Class\n\n\n\n\nClearance: \n0.0078\n / 0.2mm\n\n\nTrack Width: \n0.0078\n / 0.2mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.013\n / 0.3302mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical Custom Track widths\n\n\n\n\n0.1524mm\n\n\n0.2mm\n\n\n0.25mm\n\n\n0.3mm\n\n\n0.4mm\n\n\n0.5mm\n\n\n0.6mm\n\n\n0.8mm", 
+            "title": "&nbsp;Design Rules OSHPark"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#design-rules-oshpark", 
+            "text": "", 
+            "title": "Design Rules - OSHPark"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#overview", 
+            "text": "For OSHPark the recommended Design rules are   http://docs.oshpark.com/design-tools/kicad/  http://docs.oshpark.com/design-tools/kicad/kicad-design-rules/   Note 0.001  = 1mil  Since the minimum annular ring measurement is 7mil \nThe minimum via diameter = 7 + 7 + 13 (drill diameter) = 27mil", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#2-layer-prototype", 
+            "text": "", 
+            "title": "2 Layer Prototype"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#global-settings", 
+            "text": "Disable the  Blind/Buried vias  Disable the  Micro vias  Min track width:  0.006  / 0.1524mm  Min via diameter:  0.027  / 0.6858mm  Min via drill diameter:  0.013  / 0.3302mm  Min uvia diameter:  0.508 (unused)  Min uvia drill dia:  0.127 (unused)", 
+            "title": "Global Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#net-classes", 
+            "text": "", 
+            "title": "Net Classes"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#minimal-net-class", 
+            "text": "Clearance:  0.006  / 0.1524mm  Track Width:  0.006  / 0.1524mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.013  / 0.3302mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Minimal Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#typical-default-net-class", 
+            "text": "Clearance:  0.010  / 0.254mm  Track Width:  0.010  / 0.254mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.013  / 0.3302mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Typical Default Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#typical-02mm-net-class", 
+            "text": "Clearance:  0.0078  / 0.2mm  Track Width:  0.0078  / 0.2mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.013  / 0.3302mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Typical 0.2mm Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OSHPark/#typical-custom-track-widths", 
+            "text": "0.1524mm  0.2mm  0.25mm  0.3mm  0.4mm  0.5mm  0.6mm  0.8mm", 
+            "title": "Typical Custom Track widths"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/", 
+            "text": "Design Rules - SeedStudio\n\n\nOverview\n\n\nFor Seed Studio the recommended Design rules are\n\n\n\n\nhttp://support.seeedstudio.com/knowledgebase/articles/447362-fusion-pcb-specification\n\n\n\n\nNote 0.001\n = 1mil\n\n\nSince the minimum annular ring measurement is 4mil\n\nThe minimum via diameter = 4 + 4 + 8 (drill diameter) = 16mil\n\n\nGlobal Settings\n\n\n\n\nDisable the \nBlind/Buried vias\n\n\nDisable the \nMicro vias\n\n\nMin track width: \n0.004\n / 0.1016mm\n\n\nMin via diameter: \n0.016\n / 0.4064mm\n\n\nMin via drill diameter: \n0.012\n / 0.3048mm\n\n\nMin uvia diameter: \n0.508 (unused)\n\n\nMin uvia drill dia: \n0.127 (unused)\n\n\n\n\nNet Classes\n\n\nMinimal Net Class\n\n\n\n\nClearance: \n0.004\n / 0.1016mm\n\n\nTrack Width: \n0.004\n / 0.1016mm\n\n\nVia Dia: \n0.016\n / 0.4064mm\n\n\nVia Drill: \n0.012\n / 0.3048mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical Default Net Class\n\n\n\n\nClearance: \n0.010\n / 0.254mm\n\n\nTrack Width: \n0.010\n / 0.254mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.013\n / 0.3302mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical 0.2mm Net Class\n\n\n\n\nClearance: \n0.0078\n / 0.2mm\n\n\nTrack Width: \n0.0078\n / 0.2mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.013\n / 0.3302mm\n\n\nuVia Dia: \n0.508 (unused)\n\n\nuVia Drill: \n0.127 (unused)\n\n\n\n\nTypical Custom Track widths\n\n\n\n\n0.1524mm\n\n\n0.2mm\n\n\n0.25mm\n\n\n0.3mm\n\n\n0.4mm\n\n\n0.5mm\n\n\n0.6mm\n\n\n0.8mm", 
+            "title": "&nbsp;Design Rules Seed Studio"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#design-rules-seedstudio", 
+            "text": "", 
+            "title": "Design Rules - SeedStudio"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#overview", 
+            "text": "For Seed Studio the recommended Design rules are   http://support.seeedstudio.com/knowledgebase/articles/447362-fusion-pcb-specification   Note 0.001  = 1mil  Since the minimum annular ring measurement is 4mil \nThe minimum via diameter = 4 + 4 + 8 (drill diameter) = 16mil", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#global-settings", 
+            "text": "Disable the  Blind/Buried vias  Disable the  Micro vias  Min track width:  0.004  / 0.1016mm  Min via diameter:  0.016  / 0.4064mm  Min via drill diameter:  0.012  / 0.3048mm  Min uvia diameter:  0.508 (unused)  Min uvia drill dia:  0.127 (unused)", 
+            "title": "Global Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#net-classes", 
+            "text": "", 
+            "title": "Net Classes"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#minimal-net-class", 
+            "text": "Clearance:  0.004  / 0.1016mm  Track Width:  0.004  / 0.1016mm  Via Dia:  0.016  / 0.4064mm  Via Drill:  0.012  / 0.3048mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Minimal Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#typical-default-net-class", 
+            "text": "Clearance:  0.010  / 0.254mm  Track Width:  0.010  / 0.254mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.013  / 0.3302mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Typical Default Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#typical-02mm-net-class", 
+            "text": "Clearance:  0.0078  / 0.2mm  Track Width:  0.0078  / 0.2mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.013  / 0.3302mm  uVia Dia:  0.508 (unused)  uVia Drill:  0.127 (unused)", 
+            "title": "Typical 0.2mm Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-SeedStudio/#typical-custom-track-widths", 
+            "text": "0.1524mm  0.2mm  0.25mm  0.3mm  0.4mm  0.5mm  0.6mm  0.8mm", 
+            "title": "Typical Custom Track widths"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OrangeLaserCutter/", 
+            "text": "Design Rules - Orange Laser Cutter\n\n\nOverview\n\n\nLooking at this hackaday link for boards made using a Laser Cutter.\n\nIts suggests the following\n\n\n\n\n\n\nhttps://hackaday.com/2013/05/11/laser-cutter-helps-make-dual-sided-pcbs/\n\n\n\n\n\n\nTrack Clearance (typical): \n0.015\n / 0.381mm\n\n\n\n\nTrack Width (minimum): \n0.022\n / 0.5588mm\n\n\nDrill size (minimum): \n0.020\n / 0.508mm\n\n\nVias / Outer (minimum): \n0.018\n / 0.4572mm\n\n\nVias / Outer (max): \n0.020\n / 0.508mm\n\n\nPads Top / Bottom (minimum): \n0.015\n / 0.381mm\n\n\nAutorouting Grid (typical): \n0.002\n / 0.0508mm\n\n\n\n\nThey also suggest\n\n\n\n\n24 gauge wire or thinner for Vias\n\n\nDrill bit dia \n0.02\n / 0.508mm\n for via holes\n\n\nDrill bit dia \n0.04\n / 1.016mm\n for header pinholes\n\n\n\n\nTODO I need to test the below / adjust on the orange laser\n\n\nGlobal Settings\n\n\n\n\nDisable the \nBlind/Buried vias\n\n\nDisable the \nMicro vias\n\n\nMin track width: \n0.022\n / 0.5588mm\n\n\nMin via diameter: \n0.027\n / 0.6858mm\n\n\nMin via drill diameter: \n0.020\n / 0.508mm\n\n\nMin uvia diameter: \n0 (unused)\n\n\nMin uvia drill dia: \n0 (unused)\n\n\n\n\nDefault Net Class\n\n\n\n\nClearance: \n0.015\n / 0.381mm\n\n\nTrack Width: \n0.022\n / 0.5588mm\n\n\nVia Dia: \n0.027\n / 0.6858mm\n\n\nVia Drill: \n0.020\n / 0.508mm\n\n\nuVia Dia: \n0.03 (unused)\n\n\nuVia Drill: \n0.02 (unused)", 
+            "title": "&nbsp;Design Rules Orange Laser"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OrangeLaserCutter/#design-rules-orange-laser-cutter", 
+            "text": "", 
+            "title": "Design Rules - Orange Laser Cutter"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OrangeLaserCutter/#overview", 
+            "text": "Looking at this hackaday link for boards made using a Laser Cutter. \nIts suggests the following    https://hackaday.com/2013/05/11/laser-cutter-helps-make-dual-sided-pcbs/    Track Clearance (typical):  0.015  / 0.381mm   Track Width (minimum):  0.022  / 0.5588mm  Drill size (minimum):  0.020  / 0.508mm  Vias / Outer (minimum):  0.018  / 0.4572mm  Vias / Outer (max):  0.020  / 0.508mm  Pads Top / Bottom (minimum):  0.015  / 0.381mm  Autorouting Grid (typical):  0.002  / 0.0508mm   They also suggest   24 gauge wire or thinner for Vias  Drill bit dia  0.02  / 0.508mm  for via holes  Drill bit dia  0.04  / 1.016mm  for header pinholes   TODO I need to test the below / adjust on the orange laser", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OrangeLaserCutter/#global-settings", 
+            "text": "Disable the  Blind/Buried vias  Disable the  Micro vias  Min track width:  0.022  / 0.5588mm  Min via diameter:  0.027  / 0.6858mm  Min via drill diameter:  0.020  / 0.508mm  Min uvia diameter:  0 (unused)  Min uvia drill dia:  0 (unused)", 
+            "title": "Global Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-OrangeLaserCutter/#default-net-class", 
+            "text": "Clearance:  0.015  / 0.381mm  Track Width:  0.022  / 0.5588mm  Via Dia:  0.027  / 0.6858mm  Via Drill:  0.020  / 0.508mm  uVia Dia:  0.03 (unused)  uVia Drill:  0.02 (unused)", 
+            "title": "Default Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Shapeoko2/", 
+            "text": "Design Rules - CNC Shapeoko2\n\n\nOverview\n\n\nTODO\n\n\nNote 0.001\n = 1mil\n\n\nGlobal Settings\n\n\nTODO\n\n\nDefault Net Class\n\n\nTODO", 
+            "title": "&nbsp;Design Rules CNC - Shapeoko2"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Shapeoko2/#design-rules-cnc-shapeoko2", 
+            "text": "", 
+            "title": "Design Rules - CNC Shapeoko2"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Shapeoko2/#overview", 
+            "text": "TODO  Note 0.001  = 1mil", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Shapeoko2/#global-settings", 
+            "text": "TODO", 
+            "title": "Global Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Shapeoko2/#default-net-class", 
+            "text": "TODO", 
+            "title": "Default Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Ox/", 
+            "text": "Design Rules - CNC Ox\n\n\nOverview\n\n\nTODO\n\n\nNote 0.001\n = 1mil\n\n\nGlobal Settings\n\n\nTODO\n\n\nDefault Net Class\n\n\nTODO", 
+            "title": "&nbsp;Design Rules CNC - Ox"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Ox/#design-rules-cnc-ox", 
+            "text": "", 
+            "title": "Design Rules - CNC Ox"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Ox/#overview", 
+            "text": "TODO  Note 0.001  = 1mil", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Ox/#global-settings", 
+            "text": "TODO", 
+            "title": "Global Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/DesignRules-CNC-Ox/#default-net-class", 
+            "text": "TODO", 
+            "title": "Default Net Class"
+        }, 
+        {
+            "location": "/PCB/KiCad/EdgeBorder/", 
+            "text": "KiCad - Creating an edge border\n\n\nOverview\n\n\nOne of the first steps when creating a new PCB is to set the edge of the board. \n\nThere is a number of reasons for doing this.\n\n\n\n\nThis will define the outer edge for cutting the board\n\n\nThis will define the limits for the auto placement feature if used.\n\n\nThis will define the limits for the auto routing feature if used.\n\n\n\n\nLooking at the below screen grab\n\n\n \n\n\nOne of the first things you are probably going to want to do is to change the cursor from a simple cross to a set of lines that span the entire board.\nThis makes creating box outlines a fair bit easier when drawing them.\nThe button is the one highlighted on the far left.\n\n\nCreate the edge cut border\n\n\nSelect the yellow \nEdge Cuts\n layer at the top right\n\n\nWhen measuring distance on the board it is possible to use the \nSpace\n key to set a zero point.\nThis will set dx and dy at the bottom on the toolbar to a zero point, you can then use this to measure distance across the board\n\n\nTo start the edge cuts line, click the \nblue dotted line\n highlighted on the right to start drawing the box. \n\nUse \nRight Click -\n End Drawing\n once you\nve reached the last corner\n\n\nIt is also best to do this with a grid of 1mm, the cursor will auto snap to the grid but you can change the grid size along the top toolbar.", 
+            "title": "Edge Border"
+        }, 
+        {
+            "location": "/PCB/KiCad/EdgeBorder/#kicad-creating-an-edge-border", 
+            "text": "", 
+            "title": "KiCad - Creating an edge border"
+        }, 
+        {
+            "location": "/PCB/KiCad/EdgeBorder/#overview", 
+            "text": "One of the first steps when creating a new PCB is to set the edge of the board.  \nThere is a number of reasons for doing this.   This will define the outer edge for cutting the board  This will define the limits for the auto placement feature if used.  This will define the limits for the auto routing feature if used.   Looking at the below screen grab     One of the first things you are probably going to want to do is to change the cursor from a simple cross to a set of lines that span the entire board.\nThis makes creating box outlines a fair bit easier when drawing them.\nThe button is the one highlighted on the far left.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/EdgeBorder/#create-the-edge-cut-border", 
+            "text": "Select the yellow  Edge Cuts  layer at the top right  When measuring distance on the board it is possible to use the  Space  key to set a zero point.\nThis will set dx and dy at the bottom on the toolbar to a zero point, you can then use this to measure distance across the board  To start the edge cuts line, click the  blue dotted line  highlighted on the right to start drawing the box.  \nUse  Right Click -  End Drawing  once you ve reached the last corner  It is also best to do this with a grid of 1mm, the cursor will auto snap to the grid but you can change the grid size along the top toolbar.", 
+            "title": "Create the edge cut border"
+        }, 
+        {
+            "location": "/PCB/KiCad/LibraryMgmt/", 
+            "text": "KiCad - Library Management\n\n\nOverview\n\n\nTypically with KiCad it stores multiple schematic parts within a single .lib file \n\nBut the PCB Footprints are usually stored one file per footprint within a directory ending in .pretty\n\n\nAdding new libraries\n\n\nIn order to add PCB footprint libraries to the PCB diagram.\n\n\n\n\nFirst select \nPreferences -\n Footprint Libraries Manager\n\n\nSelect the Project Specific Libraries tab\n\n\n\n\n \n\n\nAt this point to use a relative directory you can use the $(KIPRJMOD) variable to specify a directory relative to the project root. \n\nThe footprints will be picked up from these additional directories", 
+            "title": "Library Management"
+        }, 
+        {
+            "location": "/PCB/KiCad/LibraryMgmt/#kicad-library-management", 
+            "text": "", 
+            "title": "KiCad - Library Management"
+        }, 
+        {
+            "location": "/PCB/KiCad/LibraryMgmt/#overview", 
+            "text": "Typically with KiCad it stores multiple schematic parts within a single .lib file  \nBut the PCB Footprints are usually stored one file per footprint within a directory ending in .pretty", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/LibraryMgmt/#adding-new-libraries", 
+            "text": "In order to add PCB footprint libraries to the PCB diagram.   First select  Preferences -  Footprint Libraries Manager  Select the Project Specific Libraries tab      At this point to use a relative directory you can use the $(KIPRJMOD) variable to specify a directory relative to the project root.  \nThe footprints will be picked up from these additional directories", 
+            "title": "Adding new libraries"
+        }, 
+        {
+            "location": "/PCB/KiCad/PartsPlacement/", 
+            "text": "KiCad Parts Placement\n\n\nManually moving parts\n\n\nFirst we want manually move any parts into position that need to be in a specific place.\n\nOne example would be connectors at the edges of the board.\n\n\n\n\nMake sure the Mode Footprint button is set to Manual\n\n\nMove each of the parts, which need to be in a fixed place into position using the right click menu or m key\n\n\n\n\n \n\n\nLocking Manually moved parts\n\n\nIf we are going to use the auto placement feature then we also need to lock anything we do not want moved into place.\n\n\n\n\nClick / Turn on the Mode footprint button\n    This will enable the \nGlobal Spread and Place\n right click menu.\n\n\nThis will also enable a right click menu option of \nLock Footprint\n which prevents Auto place from moving the component\n\n\n\n\nRight click on each component that needs to be fixed and select \nLock Footprint\n\n\nAuto moving parts\n\n\nNext we\nre going to use the auto placement feature to move anything left over in the middle of the board.\n\nAutomatic placement will not move anything that is locked into place. \n\n(Make sure Alex doesn\nt catch you using this)\n\n\n\n\nMake sure the Mode Footprint button is set to Auto (as per the last section)\n\n\nMake sure to set the grid size to something small before using this.\n\n\nYou may want to manually move things around afterwards for better placement \n\n    I just find it is a good initial step before anything else\n\n\n\n\nRight Click on the background and select\n\n\nGlobal Spread and Place -\n automatically place all footprints", 
+            "title": "Parts Placement"
+        }, 
+        {
+            "location": "/PCB/KiCad/PartsPlacement/#kicad-parts-placement", 
+            "text": "", 
+            "title": "KiCad Parts Placement"
+        }, 
+        {
+            "location": "/PCB/KiCad/PartsPlacement/#manually-moving-parts", 
+            "text": "First we want manually move any parts into position that need to be in a specific place. \nOne example would be connectors at the edges of the board.   Make sure the Mode Footprint button is set to Manual  Move each of the parts, which need to be in a fixed place into position using the right click menu or m key", 
+            "title": "Manually moving parts"
+        }, 
+        {
+            "location": "/PCB/KiCad/PartsPlacement/#locking-manually-moved-parts", 
+            "text": "If we are going to use the auto placement feature then we also need to lock anything we do not want moved into place.   Click / Turn on the Mode footprint button\n    This will enable the  Global Spread and Place  right click menu.  This will also enable a right click menu option of  Lock Footprint  which prevents Auto place from moving the component   Right click on each component that needs to be fixed and select  Lock Footprint", 
+            "title": "Locking Manually moved parts"
+        }, 
+        {
+            "location": "/PCB/KiCad/PartsPlacement/#auto-moving-parts", 
+            "text": "Next we re going to use the auto placement feature to move anything left over in the middle of the board. \nAutomatic placement will not move anything that is locked into place.  \n(Make sure Alex doesn t catch you using this)   Make sure the Mode Footprint button is set to Auto (as per the last section)  Make sure to set the grid size to something small before using this.  You may want to manually move things around afterwards for better placement  \n    I just find it is a good initial step before anything else   Right Click on the background and select  Global Spread and Place -  automatically place all footprints", 
+            "title": "Auto moving parts"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/", 
+            "text": "KiCAD Routing\n\n\nManual Routing\n\n\nWhen manual routing\n\n\n\n\nSelect the track width to use \n\n    This will be the same as the list of Custom Track widths in the Design Rules\n\n\nSelect the correct track Front / Back\n\n\nSelect the track button\n\n\nPlace the track\n\n\n\n\nThe GUI should prevent tracks being wired to incorrect pads and take account of clearance rules\n\n\n \n\n\n\n\nLQFP is easier to solder, TQFP will probably need thinner tracks\n\n\nTry to avoid via\ns under SMD Components \n\n    For Auto routing, this can be done by defining keep out zones\n\n\n\n\nFor Battery and pin headers be careful of unsolderable top pads.\n\n\n\n\n\n\nhttp://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/\n\n\n\n\nhttps://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-pcb-edges/\n\n\nhttps://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/\n\n\nhttps://www.wayneandlayne.com/blog/tag/kicad-tutorial/\n\n\n\n\nAuto Routing\n\n\nInbuilt Auto Route\n\n\nThe latest version of KiCad now has an inbuilt auto router\n\n\n\n\nEnable the auto routing mode\n\n\nEnable auto track width\n\n\n\n\n \n\n\nNext, Right click on some empty space and select\n\n\nAutoroute -\n automatically route all footprints\n\n\n \n\n\nFree Route\n\n\nOne other method of auto routing is to use an application called Free Route.\n\n\nExport .dsn file\n\n\n\n\nFirst select the Free Route Button\n\n\nNext Press the button labelled \nExport a Specctra Design (*.dsn) File\n\n\nSave the .dsn file to a separate directory (the auto router will likely create other files where the dsn file is located)\n\n\n\n\n \n\n\nNext, grab a copy of the Freerouting jar from\n\n\n\n\nhttps://github.com/freerouting/freerouting/tree/master/binaries\n\n\n\n\nFreerouting\n\n\nOpen the dsn file saved within Freerouting\n\n\n \n\n\nSelect AutoRoute\n\n\n \n\n\nSelect File -\n Export Specctra Session File\n\n\n \n\n\nThis should result in a .rules and .ses file exported into the same directory\n\n\nImport back to KiCad\n\n\nNext import the .ses file back into KiCad.\n\n\n \n\n\nThis should then place the routes and via\ns", 
+            "title": "Routing"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#kicad-routing", 
+            "text": "", 
+            "title": "KiCAD Routing"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#manual-routing", 
+            "text": "When manual routing   Select the track width to use  \n    This will be the same as the list of Custom Track widths in the Design Rules  Select the correct track Front / Back  Select the track button  Place the track   The GUI should prevent tracks being wired to incorrect pads and take account of clearance rules      LQFP is easier to solder, TQFP will probably need thinner tracks  Try to avoid via s under SMD Components  \n    For Auto routing, this can be done by defining keep out zones   For Battery and pin headers be careful of unsolderable top pads.    http://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/   https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-pcb-edges/  https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/  https://www.wayneandlayne.com/blog/tag/kicad-tutorial/", 
+            "title": "Manual Routing"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#auto-routing", 
+            "text": "", 
+            "title": "Auto Routing"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#inbuilt-auto-route", 
+            "text": "The latest version of KiCad now has an inbuilt auto router   Enable the auto routing mode  Enable auto track width      Next, Right click on some empty space and select  Autoroute -  automatically route all footprints", 
+            "title": "Inbuilt Auto Route"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#free-route", 
+            "text": "One other method of auto routing is to use an application called Free Route.", 
+            "title": "Free Route"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#export-dsn-file", 
+            "text": "First select the Free Route Button  Next Press the button labelled  Export a Specctra Design (*.dsn) File  Save the .dsn file to a separate directory (the auto router will likely create other files where the dsn file is located)      Next, grab a copy of the Freerouting jar from   https://github.com/freerouting/freerouting/tree/master/binaries", 
+            "title": "Export .dsn file"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#freerouting", 
+            "text": "Open the dsn file saved within Freerouting     Select AutoRoute     Select File -  Export Specctra Session File     This should result in a .rules and .ses file exported into the same directory", 
+            "title": "Freerouting"
+        }, 
+        {
+            "location": "/PCB/KiCad/Routing/#import-back-to-kicad", 
+            "text": "Next import the .ses file back into KiCad.     This should then place the routes and via s", 
+            "title": "Import back to KiCad"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/", 
+            "text": "Zones\n\n\nKeep Out Zones\n\n\nWhen doing auto or manual routing one of the tricks we can do is define keep out areas.\nThese are areas where components or via\ns should avoid on the board\n\n\n\n\nSelect the correct Copper layer\n\n\nSelect \nPlace -\n Keepout Area\n to place\n\n\nDraw a box for the keep out area\n\n\n\n\nThe red square area will keep components out of that area for auto routing, or raise DRC errors if components are within that area.\n\n\n \n\n\nFill Zones\n\n\nFill zones are used to fill blank areas of the board with a Ground or +V rail\n\n\n\n\nSelect the correct Copper layer\n\n\nSelect \nPlace -\n Zone\n to place\n\n\n\n\n \n\n\nNext you should see a prompt for which net to add the zone to / clearance settings etc\n\n\n \n\n\nAfter selecting the options, draw a box for the fill area \n\nThis will result in a red box around the specified fill zone\n\n\nThermal Relief Settings\n\n\nThe \nThermal Reliefs\n settings control the clearance around the ground pads\nand the width of the traces connecting from the fill to the ground pads.\nThis makes it easier to solder pads connected to the filled in zone.\n\n\n\n\nThe Outline slope can be left as \nH V and 45 deg only\n or set to Arbitrary to define the zone area\n\n\n\n\nThese are some recomended settings I pulled from the below site\n\n\n\n\nhttps://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/\n\n\nClearance: \n0.020\n / 0.508\n\n\nMinimum Width: \n0.0089\n / 0.22606\n\n\nPad Connection: \nThermal Relief\n\n\nAntipad clearance \n0.040\n / 1.016mm\n\n\nSpoke Width \n0.009\n / 0.2286mm\n\n\n\n\nFilling in the area\n\n\nTo Fill in the zone or remove the fill\n\n\n\n\nRight click on the zone area and select \nFill or Refill All Zones\n\n\nRight click on the zone area and select \nRemove Filled area in all Zones\n\n\n\n\nTo change the view of the fill\n\nSelect the fill view buttons on the left toolbar", 
+            "title": "Zones"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/#zones", 
+            "text": "", 
+            "title": "Zones"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/#keep-out-zones", 
+            "text": "When doing auto or manual routing one of the tricks we can do is define keep out areas.\nThese are areas where components or via s should avoid on the board   Select the correct Copper layer  Select  Place -  Keepout Area  to place  Draw a box for the keep out area   The red square area will keep components out of that area for auto routing, or raise DRC errors if components are within that area.", 
+            "title": "Keep Out Zones"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/#fill-zones", 
+            "text": "Fill zones are used to fill blank areas of the board with a Ground or +V rail   Select the correct Copper layer  Select  Place -  Zone  to place      Next you should see a prompt for which net to add the zone to / clearance settings etc     After selecting the options, draw a box for the fill area  \nThis will result in a red box around the specified fill zone", 
+            "title": "Fill Zones"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/#thermal-relief-settings", 
+            "text": "The  Thermal Reliefs  settings control the clearance around the ground pads\nand the width of the traces connecting from the fill to the ground pads.\nThis makes it easier to solder pads connected to the filled in zone.   The Outline slope can be left as  H V and 45 deg only  or set to Arbitrary to define the zone area   These are some recomended settings I pulled from the below site   https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/  Clearance:  0.020  / 0.508  Minimum Width:  0.0089  / 0.22606  Pad Connection:  Thermal Relief  Antipad clearance  0.040  / 1.016mm  Spoke Width  0.009  / 0.2286mm", 
+            "title": "Thermal Relief Settings"
+        }, 
+        {
+            "location": "/PCB/KiCad/Zones/#filling-in-the-area", 
+            "text": "To Fill in the zone or remove the fill   Right click on the zone area and select  Fill or Refill All Zones  Right click on the zone area and select  Remove Filled area in all Zones   To change the view of the fill \nSelect the fill view buttons on the left toolbar", 
+            "title": "Filling in the area"
+        }, 
+        {
+            "location": "/PCB/KiCad/DRCCheck/", 
+            "text": "DRC Check\n\n\nOverview\n\n\nOne of the final steps we can run is a DRC check. \n\nThis can be used to validate the tracks and vias on the board. \n\nFor example if anything is too close from a minimum clearance point of view.\n\n\n\n\nSelect \nTools -\n DRC\n\n\n\n\n \n\n\nSelecting \nStart DRC\n should highlight any problems based on the design rules", 
+            "title": "DRC Check"
+        }, 
+        {
+            "location": "/PCB/KiCad/DRCCheck/#drc-check", 
+            "text": "", 
+            "title": "DRC Check"
+        }, 
+        {
+            "location": "/PCB/KiCad/DRCCheck/#overview", 
+            "text": "One of the final steps we can run is a DRC check.  \nThis can be used to validate the tracks and vias on the board.  \nFor example if anything is too close from a minimum clearance point of view.   Select  Tools -  DRC      Selecting  Start DRC  should highlight any problems based on the design rules", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/", 
+            "text": "Kicad Exporting Gerbers\n\n\nOverview\n\n\nThe final step is to export the PCB as a set of Gerbers or SVG\ns.\nThis will vary slightly based on if you are using a manufacturer or planning to export the Gerber files into Flatcam for use with a CNC or the Laser Cutter\n\n\nRedraw Fill Zones\n\n\nOne of the tips from OSHPark is that KiCad does not automatically redraw the fill zones for certain changes, which can leave them out of sync with your other signals. This can result in the gerbers not matching the design, and ruining your circuit board.\n\n\nTo redraw these, simply use the hotkey b. \n\nKicad will also refresh the fill zones when you run a DRC Check, under \nTools -\n DRC\n\n\nExport Gerbers for OSHPark\n\n\nFor OSHPark:\n\n\n\n\nExporting Gerbers - OSHPark\n\n\n\n\nExport Gerbers for Seed Studio\n\n\nFor Seed Studio:\n\n\n\n\nExporting Gerbers - Seed Studio\n\n\n\n\nExport Gerbers for Laser Cutter / CNC\n\n\nIf we are planning to use the CNC or LaserCutter to make the PCB\ns then we need to export the gerbers in such a way that will be okay to Flatcam to parse.\n\n\n\n\nExporting Gerbers - FlatCam\n\n\n\n\nExport SVG via KiCad\n\n\nThis is an old document I kept around for exporting Svg\ns directly from KiCad\n\nI\nd recommend avoiding this method if trying this with the Laser cutter and instead use the Gerber / Flatcam method instead.\n\n\n\n\nExporting Svg\ns directly from KiCad\n\n\n\n\nViewing the Gerber files\n\n\nOne of the suggested steps by OSHPark is to view the gerbers before uploading them to the site.\nKiCad has an inbuilt gerber viewer, but the suggested app to use is GerbV\n\n\n\n\nGerbV\n\n\n\n\nAnother handy 3D gerber viewing tool is ZofzPCB\n\n\n\n\nZofzPCB", 
+            "title": "Export Gerbers"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#kicad-exporting-gerbers", 
+            "text": "", 
+            "title": "Kicad Exporting Gerbers"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#overview", 
+            "text": "The final step is to export the PCB as a set of Gerbers or SVG s.\nThis will vary slightly based on if you are using a manufacturer or planning to export the Gerber files into Flatcam for use with a CNC or the Laser Cutter", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#redraw-fill-zones", 
+            "text": "One of the tips from OSHPark is that KiCad does not automatically redraw the fill zones for certain changes, which can leave them out of sync with your other signals. This can result in the gerbers not matching the design, and ruining your circuit board.  To redraw these, simply use the hotkey b.  \nKicad will also refresh the fill zones when you run a DRC Check, under  Tools -  DRC", 
+            "title": "Redraw Fill Zones"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#export-gerbers-for-oshpark", 
+            "text": "For OSHPark:   Exporting Gerbers - OSHPark", 
+            "title": "Export Gerbers for OSHPark"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#export-gerbers-for-seed-studio", 
+            "text": "For Seed Studio:   Exporting Gerbers - Seed Studio", 
+            "title": "Export Gerbers for Seed Studio"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#export-gerbers-for-laser-cutter-cnc", 
+            "text": "If we are planning to use the CNC or LaserCutter to make the PCB s then we need to export the gerbers in such a way that will be okay to Flatcam to parse.   Exporting Gerbers - FlatCam", 
+            "title": "Export Gerbers for Laser Cutter / CNC"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#export-svg-via-kicad", 
+            "text": "This is an old document I kept around for exporting Svg s directly from KiCad \nI d recommend avoiding this method if trying this with the Laser cutter and instead use the Gerber / Flatcam method instead.   Exporting Svg s directly from KiCad", 
+            "title": "Export SVG via KiCad"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber/#viewing-the-gerber-files", 
+            "text": "One of the suggested steps by OSHPark is to view the gerbers before uploading them to the site.\nKiCad has an inbuilt gerber viewer, but the suggested app to use is GerbV   GerbV   Another handy 3D gerber viewing tool is ZofzPCB   ZofzPCB", 
+            "title": "Viewing the Gerber files"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OSHPark/", 
+            "text": "Kicad Exporting Gerbers for OSHPark\n\n\nWith OSHPark they support the direct import of the KiCad pcb file, altough we can also submit the Gerber Files\n\n\n\n\nhttp://docs.oshpark.com/design-tools/kicad/generating-kicad-gerbers/\n\n\n\n\nTwo Layer Design\n\n\nGenerating the Gerbers\n\n\n\n\nSelect \nFile -\n Plot\n from the menu\n\n\n\n\n \n\n\n\n\n\n\nSelect the output directory (change it to something like plots or gerbers to keep them seperate from the design files)\n\n\nMatch the selected layers with those in the image\n\n\nUncheck Plot sheet reference on all layers\n.\n\n    This causes OSHPark to be unable to correctly determine board size, and makes uploads likely to fail.\n\n\nCheck Exclude PCB Edge from other layers\n.\n\n    This ensures that the Edge.Cuts layer does not inadvertently cause shorts to features near the edge.\n\n\nCheck use Protel filename extensions\n\n\n\n\n \n\n\n\n\nClick Plot\n\n\n\n\nExporting Drill Files\n\n\nNext, we are going to generate the drill files.\n\n\n\n\nSelect \nGenerate Drill File\n\n\n\n\nUse the same output folder as for the gerbers, which should be the default.\n\nWe want the drill file to be in decimal format with absolute coordinates and 2:4 precision.\n\nThe specific options are shown in the image below.\n\n\n \n\n\n\n\nClick \nDrill File\n to generate the .drl file", 
+            "title": "&nbsp;Export Gerber OSHPark"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OSHPark/#kicad-exporting-gerbers-for-oshpark", 
+            "text": "With OSHPark they support the direct import of the KiCad pcb file, altough we can also submit the Gerber Files   http://docs.oshpark.com/design-tools/kicad/generating-kicad-gerbers/", 
+            "title": "Kicad Exporting Gerbers for OSHPark"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OSHPark/#two-layer-design", 
+            "text": "", 
+            "title": "Two Layer Design"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OSHPark/#generating-the-gerbers", 
+            "text": "Select  File -  Plot  from the menu        Select the output directory (change it to something like plots or gerbers to keep them seperate from the design files)  Match the selected layers with those in the image  Uncheck Plot sheet reference on all layers . \n    This causes OSHPark to be unable to correctly determine board size, and makes uploads likely to fail.  Check Exclude PCB Edge from other layers . \n    This ensures that the Edge.Cuts layer does not inadvertently cause shorts to features near the edge.  Check use Protel filename extensions       Click Plot", 
+            "title": "Generating the Gerbers"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OSHPark/#exporting-drill-files", 
+            "text": "Next, we are going to generate the drill files.   Select  Generate Drill File   Use the same output folder as for the gerbers, which should be the default. \nWe want the drill file to be in decimal format with absolute coordinates and 2:4 precision. \nThe specific options are shown in the image below.      Click  Drill File  to generate the .drl file", 
+            "title": "Exporting Drill Files"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/", 
+            "text": "Kicad Exporting Gerbers for SeedStudio\n\n\nFor seedstudio I pulled the settings to use for KiCad from the below link\n\n\n\n\nhttp://www.sl-alex.com.ua/en/page/kicad-preparing-pcb-for-seeedstudio\n\n\n\n\nTwo Layer Design\n\n\nGenerating the Gerbers\n\n\n\n\nSelect \nFile -\n Plot\n from the menu\n\n\n\n\n \n\n\n\n\n\n\nSelect the output directory (change it to something like plots or gerbers to keep them seperate from the design files)\n\n\nMatch the selected layers with those in the image\n\n\nUncheck Plot sheet reference on all layers\n.\n\n    This causes OSHPark to be unable to correctly determine board size, and makes uploads likely to fail.\n\n\nCheck Exclude PCB Edge from other layers\n.\n\n    This ensures that the Edge.Cuts layer does not inadvertently cause shorts to features near the edge.\n\n\nCheck use Protel filename extensions\n\n\n\n\n \n\n\n\n\nClick Plot\n\n\n\n\nExporting Drill Files\n\n\nNext, we are going to generate the drill files.\n\n\n\n\nSelect \nGenerate Drill File\n\n\n\n\nUse the same output folder as for the gerbers, which should be the default.\n\nThe specific options are shown in the image below.\n\n\n \n\n\n\n\nClick \nDrill File\n to generate the .drl file\n\n\n\n\nRenaming Files\n\n\nNext we need to rename the gerber and drill files\n\n\n\n\npcbname-F_Cu.* -\n pcbname.GTL\n\n\npcbname-B_Cu.* -\n pcbname.GBL\n\n\npcbname-F_SilkS.* -\n pcbname.GTO\n\n\npcbname-B_SilkS.* -\n pcbname.GBO\n\n\npcbname-F_Mask.* -\n pcbname.GTS\n\n\npcbname-B_Mask.* -\n pcbname.GBS\n\n\npcbname-Edge_Cuts.* -\n pcbname.GML/GKO\n\n\npcbname.drl -\n pcbname.TXT", 
+            "title": "&nbsp;Export Gerber Seed Studio"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/#kicad-exporting-gerbers-for-seedstudio", 
+            "text": "For seedstudio I pulled the settings to use for KiCad from the below link   http://www.sl-alex.com.ua/en/page/kicad-preparing-pcb-for-seeedstudio", 
+            "title": "Kicad Exporting Gerbers for SeedStudio"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/#two-layer-design", 
+            "text": "", 
+            "title": "Two Layer Design"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/#generating-the-gerbers", 
+            "text": "Select  File -  Plot  from the menu        Select the output directory (change it to something like plots or gerbers to keep them seperate from the design files)  Match the selected layers with those in the image  Uncheck Plot sheet reference on all layers . \n    This causes OSHPark to be unable to correctly determine board size, and makes uploads likely to fail.  Check Exclude PCB Edge from other layers . \n    This ensures that the Edge.Cuts layer does not inadvertently cause shorts to features near the edge.  Check use Protel filename extensions       Click Plot", 
+            "title": "Generating the Gerbers"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/#exporting-drill-files", 
+            "text": "Next, we are going to generate the drill files.   Select  Generate Drill File   Use the same output folder as for the gerbers, which should be the default. \nThe specific options are shown in the image below.      Click  Drill File  to generate the .drl file", 
+            "title": "Exporting Drill Files"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-SeedStudio/#renaming-files", 
+            "text": "Next we need to rename the gerber and drill files   pcbname-F_Cu.* -  pcbname.GTL  pcbname-B_Cu.* -  pcbname.GBL  pcbname-F_SilkS.* -  pcbname.GTO  pcbname-B_SilkS.* -  pcbname.GBO  pcbname-F_Mask.* -  pcbname.GTS  pcbname-B_Mask.* -  pcbname.GBS  pcbname-Edge_Cuts.* -  pcbname.GML/GKO  pcbname.drl -  pcbname.TXT", 
+            "title": "Renaming Files"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-FlatCam/", 
+            "text": "Kicad Exporting Gerbers into FlatCam\n\n\nIn order to get the PCB into Flatcam we first need to export the needed gerber and drill files from KiCad.\n\nWe can then use FlatCam to ether generate G-Code for the CNC or a SVG for the Laser Cutter via visicut.\n\n\nSetting the Auxiliary Axis\n\n\nFirst, we want to set the Auxiliary axis to the bottom left hand corner of the board \n\n\n\n\nSelect \nPlace -\n Drill and Place Offset\n from the Menu\n\n\nClick on the bottom left hand corner of the board for the 0,0 point\n\n\nA red circle should now show up at this corner\n\n\n\n\n \n\n\n \n\n\nExporting Gerbers\n\n\nNext, we want to use the Plot option to output the drill and Gerber Files\n\n\n\n\nSelect \nFile -\n Plot\n from the menu\n\n\n\n\n \n\n\n\n\nSelect the output directory\n\n\nSelect which layers to export (Top / Bottom)\n\n\nMake sure \nUse auxiliary axis as origin\n is ticked\n\n\nClick Plot\n\n\n\n\n \n\n\nExporting Drill Files\n\n\nNext, we are going to generate the drill files, since FlatCAM can read these too\n\n\n\n\nSelect \nGenerate Drill File\n\n\nYou should be able to leave most of the options at the defaults\n\n\nMake sure \nDrill Origin\n is set to \nAuxiliary Axis\n\n\nClick \nDrill File\n to generate the .drl file", 
+            "title": "&nbsp;Export Gerber Flatcam"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-FlatCam/#kicad-exporting-gerbers-into-flatcam", 
+            "text": "In order to get the PCB into Flatcam we first need to export the needed gerber and drill files from KiCad. \nWe can then use FlatCam to ether generate G-Code for the CNC or a SVG for the Laser Cutter via visicut.", 
+            "title": "Kicad Exporting Gerbers into FlatCam"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-FlatCam/#setting-the-auxiliary-axis", 
+            "text": "First, we want to set the Auxiliary axis to the bottom left hand corner of the board    Select  Place -  Drill and Place Offset  from the Menu  Click on the bottom left hand corner of the board for the 0,0 point  A red circle should now show up at this corner", 
+            "title": "Setting the Auxiliary Axis"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-FlatCam/#exporting-gerbers", 
+            "text": "Next, we want to use the Plot option to output the drill and Gerber Files   Select  File -  Plot  from the menu       Select the output directory  Select which layers to export (Top / Bottom)  Make sure  Use auxiliary axis as origin  is ticked  Click Plot", 
+            "title": "Exporting Gerbers"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-FlatCam/#exporting-drill-files", 
+            "text": "Next, we are going to generate the drill files, since FlatCAM can read these too   Select  Generate Drill File  You should be able to leave most of the options at the defaults  Make sure  Drill Origin  is set to  Auxiliary Axis  Click  Drill File  to generate the .drl file", 
+            "title": "Exporting Drill Files"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/", 
+            "text": "Kicad - Design\n\n\nNote this is an older doc I\nve kept for info\n \n\n\nIf you want an svg export for use with the Laser Cutter see the use of Gerber output and FlatCam to do this instead\n\n\nPCB Design\n\n\nThe first step is to open the PCB Design within KiCad\n\n\n \n\n\nExport Top Layer\n\n\nNext we\nre going to export the top layer as an SVG image\n\n\n\n\nIt\ns best to avoid the use of the File -\n Export Svg option since that doesn\nt allow for a negative to be created,\n\n    instead we\nre going to use Plot\n\n\n\n\nIt\ns also best to draw a square around the board on the \nEdge Cuts\n Layer,\n\n    make sure it doesn\nt come into contact with any of the pins\n\n\n\n\n\n\nSelect \nFile -\n Plot\n\n\n\n\nSelect the Front Copper Layer on the left\n\n\nSelect the Output directory \nsvg/\n\n\nSelect Drill marks: \nSmall\n\n\nNegative plot: \nTicked\n\n\nMirrored Plot: \nUnticked\n for the front layer\n\n\nExclude PCB edge layer from other layers: \nUnticked\n To include the Outer cut line\n\n\n\n\n \n\n\nClick \nPlot\n to export the svg\n\n\nExport Bottom Layer\n\n\nNext for the bottom layer repeat as above but make the following changes\n\n\n\n\nSelect the Bottom Copper Layer on the left, unselect the Front Layer\n\n\nMirrored Plot: \nTicked\n for the bottom layer\n\n\n\n\n \n\n\nClick \nPlot\n to export the svg\n\n\nInkscape Edit\n\n\nNext we need to resize a couple of things within inkscape.\n\n\nFirst we want to resize the actual Document\n\n\n\n\nOpen each svg within inkscape\n\n\nOpen up File -\n Document Properties\n\n\nSelect the white box surrounding the Board\n\n\nExpand the \nResize page to content\n\n\nClick \nResize page to drawing or selection\n with the white outer box selected\n\n\n\n\n \n\n\nNext we need to resize the big black box that surrounds the box so that it fits within the document, this is acting as a mask\n\n\n\n\nSelect the white outline box, and select \nEdit -\n Copy\n\n\nSelect the Outer black box and Select \nEdit -\n Paste Size -\n Paste Size\n\n\nAt the top Enter X: 0 Y: 0 to position the box at the bottom left corner\n\n\n\n\n \n\n\nExamples\n\n\nSome svg\ns of adafruit\ns pcb ruler for testing how small can we go\n\n\n\n\nhttps://github.com/grbd/CAD.OxBot.Circuit/tree/master/Tests/AdafruitPCBRuller/svg\n\n\n\n\nA test of the pcb I replicated from the arduino cnc project, I\nve got no plan on using this (just created it to confirm the wiring is what I thought it was), but maybe a good test\n\n\n\n\nFront Layer\n\n\nBack Layer", 
+            "title": "&nbsp;Export Gerber OldSvg"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#kicad-design", 
+            "text": "Note this is an older doc I ve kept for info    If you want an svg export for use with the Laser Cutter see the use of Gerber output and FlatCam to do this instead", 
+            "title": "Kicad - Design"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#pcb-design", 
+            "text": "The first step is to open the PCB Design within KiCad", 
+            "title": "PCB Design"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#export-top-layer", 
+            "text": "Next we re going to export the top layer as an SVG image   It s best to avoid the use of the File -  Export Svg option since that doesn t allow for a negative to be created, \n    instead we re going to use Plot   It s also best to draw a square around the board on the  Edge Cuts  Layer, \n    make sure it doesn t come into contact with any of the pins    Select  File -  Plot   Select the Front Copper Layer on the left  Select the Output directory  svg/  Select Drill marks:  Small  Negative plot:  Ticked  Mirrored Plot:  Unticked  for the front layer  Exclude PCB edge layer from other layers:  Unticked  To include the Outer cut line      Click  Plot  to export the svg", 
+            "title": "Export Top Layer"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#export-bottom-layer", 
+            "text": "Next for the bottom layer repeat as above but make the following changes   Select the Bottom Copper Layer on the left, unselect the Front Layer  Mirrored Plot:  Ticked  for the bottom layer      Click  Plot  to export the svg", 
+            "title": "Export Bottom Layer"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#inkscape-edit", 
+            "text": "Next we need to resize a couple of things within inkscape.  First we want to resize the actual Document   Open each svg within inkscape  Open up File -  Document Properties  Select the white box surrounding the Board  Expand the  Resize page to content  Click  Resize page to drawing or selection  with the white outer box selected      Next we need to resize the big black box that surrounds the box so that it fits within the document, this is acting as a mask   Select the white outline box, and select  Edit -  Copy  Select the Outer black box and Select  Edit -  Paste Size -  Paste Size  At the top Enter X: 0 Y: 0 to position the box at the bottom left corner", 
+            "title": "Inkscape Edit"
+        }, 
+        {
+            "location": "/PCB/KiCad/ExportGerber-OldSvg/#examples", 
+            "text": "Some svg s of adafruit s pcb ruler for testing how small can we go   https://github.com/grbd/CAD.OxBot.Circuit/tree/master/Tests/AdafruitPCBRuller/svg   A test of the pcb I replicated from the arduino cnc project, I ve got no plan on using this (just created it to confirm the wiring is what I thought it was), but maybe a good test   Front Layer  Back Layer", 
+            "title": "Examples"
+        }
+    ]
+}

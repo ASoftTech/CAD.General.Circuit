@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://ASoftTech/CAD.General.Circuit/PCB/KiCad/Routing/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>Routing - CAD.General.Circuit</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/highlight-fix.css" rel="stylesheet">
+        <link href="../../../css/highlight-custom.css" rel="stylesheet">
+        <link href="../../../css/navbarfix.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">CAD.General.Circuit</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCB <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">KiCad</a>
+    <ul class="dropdown-menu">
+        
+            
+    
+<li >
+    <a href="../Overview/">Overivew</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../SchematicPCB/">Schematic</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../DesignRules/">Design Rules</a>
+</li>
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+<li >
+    <a href="../EdgeBorder/">Edge Border</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../LibraryMgmt/">Library Management</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../PartsPlacement/">Parts Placement</a>
+</li>
+    
+
+        
+            
+    
+<li class="active">
+    <a href="./">Routing</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../Zones/">Zones</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../DRCCheck/">DRC Check</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../ExportGerber/">Export Gerbers</a>
+</li>
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../PartsPlacement/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../Zones/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/ASoftTech/CAD.General.Circuit/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    
+                      <a href="https://github.com/ASoftTech/CAD.General.Circuit/edit/master/Docs/MkDocs/Docs/PCB\KiCad\Routing.md"
+                        class="icon icon-github"> Edit</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#kicad-routing">KiCAD Routing</a></li>
+        
+            <li><a href="#manual-routing">Manual Routing</a></li>
+        
+            <li><a href="#auto-routing">Auto Routing</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="kicad-routing">KiCAD Routing</h1>
+<h2 id="manual-routing">Manual Routing</h2>
+<p>When manual routing</p>
+<ul>
+<li>Select the track width to use <br>
+    This will be the same as the list of Custom Track widths in the Design Rules</li>
+<li>Select the correct track Front / Back</li>
+<li>Select the track button</li>
+<li>Place the track</li>
+</ul>
+<p>The GUI should prevent tracks being wired to incorrect pads and take account of clearance rules</p>
+<p><a href="../../../images/PCB/KiCad/Routing/ManualRoute1.png"><img src="../../../images/PCB/KiCad/Routing/ManualRoute1.png" height="50%" width="50%" ></a> <br></p>
+<ul>
+<li>LQFP is easier to solder, TQFP will probably need thinner tracks</li>
+<li>Try to avoid via&rsquo;s under SMD Components <br>
+    For Auto routing, this can be done by defining keep out zones</li>
+<li>
+<p>For Battery and pin headers be careful of unsolderable top pads.</p>
+</li>
+<li>
+<p><a href="http://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/">http://hackaday.com/2016/12/09/creating-a-pcb-in-everything-kicad-part-2/</a></p>
+</li>
+<li><a href="https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-pcb-edges/">https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-pcb-edges/</a></li>
+<li><a href="https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/">https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/</a></li>
+<li><a href="https://www.wayneandlayne.com/blog/tag/kicad-tutorial/">https://www.wayneandlayne.com/blog/tag/kicad-tutorial/</a></li>
+</ul>
+<h2 id="auto-routing">Auto Routing</h2>
+<h3 id="inbuilt-auto-route">Inbuilt Auto Route</h3>
+<p>The latest version of KiCad now has an inbuilt auto router<br></p>
+<ul>
+<li>Enable the auto routing mode</li>
+<li>Enable auto track width</li>
+</ul>
+<p><a href="../../../images/PCB/KiCad/Routing/AutoRouteMode.png"><img src="../../../images/PCB/KiCad/Routing/AutoRouteMode.png" height="50%" width="50%" ></a> <br></p>
+<p>Next, Right click on some empty space and select<br>
+<strong>Autoroute -&gt; automatically route all footprints</strong></p>
+<p><a href="../../../images/PCB/KiCad/Routing/AutoRoute1.png"><img src="../../../images/PCB/KiCad/Routing/AutoRoute1.png" height="50%" width="50%" ></a> <br></p>
+<h3 id="free-route">Free Route</h3>
+<p>One other method of auto routing is to use an application called Free Route.</p>
+<h4 id="export-dsn-file">Export .dsn file</h4>
+<ul>
+<li>First select the Free Route Button</li>
+<li>Next Press the button labelled &ldquo;Export a Specctra Design (*.dsn) File&rdquo;</li>
+<li>Save the .dsn file to a separate directory (the auto router will likely create other files where the dsn file is located)</li>
+</ul>
+<p><a href="../../../images/PCB/KiCad/Routing/Pcb1.png"><img src="../../../images/PCB/KiCad/Routing/Pcb1.png" height="50%" width="50%" ></a> <br></p>
+<p>Next, grab a copy of the Freerouting jar from</p>
+<ul>
+<li><a href="https://github.com/freerouting/freerouting/tree/master/binaries">https://github.com/freerouting/freerouting/tree/master/binaries</a></li>
+</ul>
+<h4 id="freerouting">Freerouting</h4>
+<p>Open the dsn file saved within Freerouting</p>
+<p><a href="../../../images/PCB/KiCad/Routing/Freerouting1.png"><img src="../../../images/PCB/KiCad/Routing/Freerouting1.png" height="30%" width="30%" ></a> <br></p>
+<p>Select AutoRoute</p>
+<p><a href="../../../images/PCB/KiCad/Routing/Freerouting2.png"><img src="../../../images/PCB/KiCad/Routing/Freerouting2.png" height="50%" width="50%" ></a> <br></p>
+<p>Select File -&gt; Export Specctra Session File</p>
+<p><a href="../../../images/PCB/KiCad/Routing/Freerouting3.png"><img src="../../../images/PCB/KiCad/Routing/Freerouting3.png" height="50%" width="50%" ></a> <br></p>
+<p>This should result in a .rules and .ses file exported into the same directory</p>
+<h4 id="import-back-to-kicad">Import back to KiCad</h4>
+<p>Next import the .ses file back into KiCad.</p>
+<p><a href="../../../images/PCB/KiCad/Routing/Pcb2.png"><img src="../../../images/PCB/KiCad/Routing/Pcb2.png" height="50%" width="50%" ></a> <br></p>
+<p>This should then place the routes and via&rsquo;s</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

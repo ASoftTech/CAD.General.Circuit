@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://ASoftTech/CAD.General.Circuit/PCB/KiCad/Zones/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>Zones - CAD.General.Circuit</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/highlight-fix.css" rel="stylesheet">
+        <link href="../../../css/highlight-custom.css" rel="stylesheet">
+        <link href="../../../css/navbarfix.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">CAD.General.Circuit</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCB <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">KiCad</a>
+    <ul class="dropdown-menu">
+        
+            
+    
+<li >
+    <a href="../Overview/">Overivew</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../SchematicPCB/">Schematic</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../DesignRules/">Design Rules</a>
+</li>
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+<li >
+    <a href="../EdgeBorder/">Edge Border</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../LibraryMgmt/">Library Management</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../PartsPlacement/">Parts Placement</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../Routing/">Routing</a>
+</li>
+    
+
+        
+            
+    
+<li class="active">
+    <a href="./">Zones</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../DRCCheck/">DRC Check</a>
+</li>
+    
+
+        
+            
+    
+<li >
+    <a href="../ExportGerber/">Export Gerbers</a>
+</li>
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+            
+    
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../Routing/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../DRCCheck/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/ASoftTech/CAD.General.Circuit/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    
+                      <a href="https://github.com/ASoftTech/CAD.General.Circuit/edit/master/Docs/MkDocs/Docs/PCB\KiCad\Zones.md"
+                        class="icon icon-github"> Edit</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#zones">Zones</a></li>
+        
+            <li><a href="#keep-out-zones">Keep Out Zones</a></li>
+        
+            <li><a href="#fill-zones">Fill Zones</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="zones">Zones</h1>
+<h2 id="keep-out-zones">Keep Out Zones</h2>
+<p>When doing auto or manual routing one of the tricks we can do is define keep out areas.
+These are areas where components or via&rsquo;s should avoid on the board</p>
+<ul>
+<li>Select the correct Copper layer</li>
+<li>Select <strong>Place -&gt; Keepout Area</strong> to place</li>
+<li>Draw a box for the keep out area</li>
+</ul>
+<p>The red square area will keep components out of that area for auto routing, or raise DRC errors if components are within that area.</p>
+<p><a href="../../../images/PCB/KiCad/Zones/Keepout1.png"><img src="../../../images/PCB/KiCad/Zones/Keepout1.png" height="50%" width="50%" ></a> <br></p>
+<h2 id="fill-zones">Fill Zones</h2>
+<p>Fill zones are used to fill blank areas of the board with a Ground or +V rail</p>
+<ul>
+<li>Select the correct Copper layer</li>
+<li>Select <strong>Place -&gt; Zone</strong> to place</li>
+</ul>
+<p><a href="../../../images/PCB/KiCad/Zones/FillZone1.png"><img src="../../../images/PCB/KiCad/Zones/FillZone1.png" height="50%" width="50%" ></a> <br></p>
+<p>Next you should see a prompt for which net to add the zone to / clearance settings etc</p>
+<p><a href="../../../images/PCB/KiCad/Zones/FillZone2.png"><img src="../../../images/PCB/KiCad/Zones/FillZone2.png" height="30%" width="30%" ></a> <br></p>
+<p>After selecting the options, draw a box for the fill area <br>
+This will result in a red box around the specified fill zone</p>
+<h3 id="thermal-relief-settings">Thermal Relief Settings</h3>
+<p>The <strong>Thermal Reliefs</strong> settings control the clearance around the ground pads
+and the width of the traces connecting from the fill to the ground pads.
+This makes it easier to solder pads connected to the filled in zone.</p>
+<ul>
+<li>The Outline slope can be left as &ldquo;H V and 45 deg only&rdquo; or set to Arbitrary to define the zone area</li>
+</ul>
+<p>These are some recomended settings I pulled from the below site</p>
+<ul>
+<li><a href="https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/">https://www.wayneandlayne.com/blog/2013/02/26/kicad-tutorial-copper-pours-fills/</a></li>
+<li>Clearance: <strong>0.020&rdquo; / 0.508</strong></li>
+<li>Minimum Width: <strong>0.0089&rdquo; / 0.22606</strong></li>
+<li>Pad Connection: <strong>Thermal Relief</strong></li>
+<li>Antipad clearance <strong>0.040&rdquo; / 1.016mm</strong></li>
+<li>Spoke Width <strong>0.009&rdquo; / 0.2286mm</strong></li>
+</ul>
+<h3 id="filling-in-the-area">Filling in the area</h3>
+<p>To Fill in the zone or remove the fill</p>
+<ul>
+<li>Right click on the zone area and select <strong>Fill or Refill All Zones</strong></li>
+<li>Right click on the zone area and select <strong>Remove Filled area in all Zones</strong></li>
+</ul>
+<p>To change the view of the fill<br>
+Select the fill view buttons on the left toolbar</p>
+<p><a href="../../../images/PCB/KiCad/Zones/FillZone3.png"><img src="../../../images/PCB/KiCad/Zones/FillZone3.png" height="50%" width="50%" ></a> <br></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
