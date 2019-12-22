@@ -1,0 +1,15 @@
+Notes
+
+when installing flatcam
+
+for source based installs
+we need to install Rtree
+
+for RTree we need to download the dll's
+spatialindex_c.dll
+spatialindex-64.dll
+http://libspatialindex.github.io/#id2
+
+
+and place them into
+C:\Python27\Lib\site-packages\rtree

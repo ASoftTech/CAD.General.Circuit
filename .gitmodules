@@ -1,0 +1,3 @@
+[submodule "Libs/Hecatron.Kicad.Libs"]
+	path = Libs/Hecatron.Kicad.Libs
+	url = https://github.com/Hecatron-Machines/Hecatron.Kicad.Libs.git

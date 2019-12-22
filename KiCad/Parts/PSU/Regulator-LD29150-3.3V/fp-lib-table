@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name GBD-SMD)(type KiCad)(uri ${KIPRJMOD}/../../../../Libs/Hecatron.Kicad.Libs/modules/GBD-SMD.pretty)(options "")(descr ""))
+)

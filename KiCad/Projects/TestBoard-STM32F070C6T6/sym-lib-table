@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name TestBoard-STM32F070C6T6-rescue)(type Legacy)(uri ${KIPRJMOD}/TestBoard-STM32F070C6T6-rescue.lib)(options "")(descr ""))
+  (lib (name gbd-device)(type Legacy)(uri D:/SourceControl/GitRepos.Appst/CAD.General.Circuit/Libs/Hecatron.Kicad.Libs/library/gbd-device.lib)(options "")(descr ""))
+  (lib (name gbd-interface)(type Legacy)(uri D:/SourceControl/GitRepos.Appst/CAD.General.Circuit/Libs/Hecatron.Kicad.Libs/library/gbd-interface.lib)(options "")(descr ""))
+)

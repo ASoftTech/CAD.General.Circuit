@@ -1,0 +1,77 @@
+site_name: CAD.General.Circuit
+site_url: http://ASoftTech/CAD.General.Circuit/
+repo_url: https://github.com/ASoftTech/CAD.General.Circuit/
+site_description: General circuit schematics / PCB Making
+edit_uri: edit/master/Docs/MkDocs/Docs
+
+pages:
+- Home: index.md
+
+- PCB:
+    - KiCad:
+#        - Overivew: PCB/KiCad/Overview.md
+#        - Schematic: PCB/KiCad/SchematicPCB.md
+#        - Design Rules: PCB/KiCad/DesignRules.md
+#        - '&nbsp;Design Rules OSHPark': PCB/KiCad/DesignRules-OSHPark.md
+#        - '&nbsp;Design Rules Seed Studio': PCB/KiCad/DesignRules-SeedStudio.md
+#        - '&nbsp;Design Rules Orange Laser': PCB/KiCad/DesignRules-OrangeLaserCutter.md
+#        - '&nbsp;Design Rules CNC - Shapeoko2': PCB/KiCad/DesignRules-CNC-Shapeoko2.md
+#        - '&nbsp;Design Rules CNC - Ox': PCB/KiCad/DesignRules-CNC-Ox.md
+#        - Edge Border: PCB/KiCad/EdgeBorder.md
+#        - Library Management: PCB/KiCad/LibraryMgmt.md
+#        - Parts Placement: PCB/KiCad/PartsPlacement.md
+#        - Routing: PCB/KiCad/Routing.md
+#        - Zones: PCB/KiCad/Zones.md
+#        - DRC Check: PCB/KiCad/DRCCheck.md
+#        - Export Gerbers: PCB/KiCad/ExportGerber.md
+#        - '&nbsp;Export Gerber OSHPark': PCB/KiCad/ExportGerber-OSHPark.md
+#        - '&nbsp;Export Gerber Seed Studio': PCB/KiCad/ExportGerber-SeedStudio.md
+#        - '&nbsp;Export Gerber Flatcam': PCB/KiCad/ExportGerber-FlatCam.md
+#        - '&nbsp;Export Gerber OldSvg': PCB/KiCad/ExportGerber-OldSvg.md
+
+#    - CNC:
+#        - Overview: PCB/CNC/Overview.md
+
+#    - Laser Etching:
+#        - Overview: PCB/LaserEtching/Overview.md
+#        - FlatCAM Single Sided: PCB/LaserEtching/FlatCam-SingleSided.md
+#        - Cleaning Board: PCB/LaserEtching/Cleaning-Board.md
+#        - Prepping the Board: PCB/LaserEtching/CopperBoard-Prep.md
+#        - Laser Engraving: PCB/LaserEtching/Laser-Engraving.md
+#        - Etching Tank: PCB/LaserEtching/Etching-Tank.md
+
+    - Mask:
+        - Overview: PCB/Mask/Overview.md
+        - Attaching-Mask: PCB/Mask/Attaching-Mask.md
+        - Painting-Board: PCB/Mask/Painting-Board.md
+
+    - Stencil:
+         - Stencil-Laser: PCB/Stencil/Stencil-Laser.md
+         - Stencil-CNC: PCB/Stencil/Stencil-CNC.md
+
+    - Materials: PCB/Materials.md
+    - Further Ideas: PCB/Further-Ideas.md
+    - Links: PCB/Links.md
+
+- Parts:
+    - Interfaces:
+         - RS485: Parts/Interfaces/RS485.md
+    - Power Supplies: Parts/PSU.md
+
+#theme_dir: 'theme/build'
+theme: cyborg
+#theme: united
+#theme: alabaster
+#theme: readthedocs
+#theme: mkdocs
+
+# Overrides content within the selected theme
+theme_dir: theme
+
+markdown_extensions:
+    - smarty
+
+extra_css:
+    - css/highlight-fix.css
+    - css/highlight-custom.css
+    - css/navbarfix.css

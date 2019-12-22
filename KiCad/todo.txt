@@ -1,0 +1,13 @@
+# TODO
+
+
+
+  * Parts\ArmCPU\CPU-Arm-LPC1769 look at LM1117-3.3
+    Maybe this needs replacing
+    also the arm cpu is unwired
+ 
+  * Projects\LPC810.Pong2\LPC810.Pong2
+    need to re-route the pcb
+ 
+   * Check project references are relative not absoloute
+   * Projects dir

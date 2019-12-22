@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name gbd-conn)(type Legacy)(uri ${KIPRJMOD}/../../../../Libs/Hecatron.Kicad.Libs/library/gbd-conn.lib)(options "")(descr ""))
+  (lib (name gbd-interface)(type Legacy)(uri ${KIPRJMOD}/../../../../Libs/Hecatron.Kicad.Libs/library/gbd-interface.lib)(options "")(descr ""))
+  (lib (name gbd-device)(type Legacy)(uri ${KIPRJMOD}/../../../../Libs/Hecatron.Kicad.Libs/library/gbd-device.lib)(options "")(descr ""))
+)

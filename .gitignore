@@ -1,0 +1,6 @@
+*.bak
+*.bck
+/Docs/MkDocs/site/
+
+__pycache__/
+.vs/

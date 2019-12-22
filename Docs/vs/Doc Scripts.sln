@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{EA888351-8472-4DBC-B108-FB3A3D0E4E5F}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Mkdocs_build", "Mkdocs_build\Mkdocs_build.pyproj", "{9C8C24E1-4517-49E4-A809-5A39665C7AA1}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "KiCadExport", "KiCadExport\KiCadExport.pyproj", "{EC45D11E-A032-409F-B4D7-A474D9C9BBFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C8C24E1-4517-49E4-A809-5A39665C7AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8C24E1-4517-49E4-A809-5A39665C7AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC45D11E-A032-409F-B4D7-A474D9C9BBFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC45D11E-A032-409F-B4D7-A474D9C9BBFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C8C24E1-4517-49E4-A809-5A39665C7AA1} = {EA888351-8472-4DBC-B108-FB3A3D0E4E5F}
+		{EC45D11E-A032-409F-B4D7-A474D9C9BBFC} = {EA888351-8472-4DBC-B108-FB3A3D0E4E5F}
+	EndGlobalSection
+EndGlobal
