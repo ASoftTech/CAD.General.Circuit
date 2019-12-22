@@ -18,12 +18,12 @@ To clone this repo
 
 Method 1
 ```
-git clone https://github.com/grbd/CAD.General.Circuit.git
+git clone https://github.com/Hecatron-Machines/Hecatron.Kicad.General.git
 git submodule init
 git submodule update
 ```
 
 Method 2
 ```
-git clone --recursive https://github.com/grbd/CAD.General.Circuit.git
+git clone --recursive https://github.com/Hecatron-Machines/Hecatron.Kicad.General.git
 ```
